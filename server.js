@@ -1,8 +1,10 @@
 const express = require('express');
+const cors = require('cors');
 const employeeRouter = require('./routes/employeeRoutes');
 
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 
 app.use('/employees', employeeRouter);
@@ -20,4 +22,3 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = app;
-
